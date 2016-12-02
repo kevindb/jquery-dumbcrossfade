@@ -18,7 +18,7 @@
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define(['jquery'], factory);
+		define(['jquery-1.7.2'], factory);
 	} else if (typeof module === 'object' && module.exports) {
 		// Node/CommonJS
 		module.exports = function( root, jQuery ) {
@@ -28,10 +28,10 @@
 				// that require this pattern but the window provided is a noop
 				// if it's defined (how jquery works)
 				if ( typeof window !== 'undefined' ) {
-					jQuery = require('jquery');
+					jQuery = require('jquery-1.7.2');
 				}
 				else {
-					jQuery = require('jquery')(root);
+					jQuery = require('jquery-1.7.2')(root);
 				}
 			}
 			factory(jQuery);

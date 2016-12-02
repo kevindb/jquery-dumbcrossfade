@@ -1,7 +1,12 @@
-#jQuery DumbCrossFade
+# jQuery DumbCrossFade
 jQuery DumbCrossFade is intended to be a light-weight slide transition that enables external manipulation.
 
-##Usage
+## Requirements
+- jQuery 1.7.2
+  - DumbCrossFade is dependent on pre-1.8 behavior for smooth animation.
+  - If you are using a newer version of jQuery (and you should be), please consider an alternative carousel library, e.g. Ken Wheeler's [Slick](https://kenwheeler.github.io/slick/)
+
+## Usage
 option parameters:
 ```
 	slideType		: can be one of the following: 'slidehorizontal', 'slidevertical', 'fade', default 'slidehorizontal'  
@@ -41,11 +46,11 @@ $('a.next').click(function() {
 });
 ```
 
-##Contributors
+## Contributors
 This is a new repository for an old project.
 See [CONTRIBUTORS](CONTRIBUTORS.md) for details.
 
-##License
+## License
 
 This repository is licensed under the GNU Lesser General Public License v2.1.  
 See [LICENSE](LICENSE.md) for details.
