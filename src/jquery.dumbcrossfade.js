@@ -1,6 +1,6 @@
 /*
 * jQuery dumbCrossFade
-* v2.0.0
+* v2.1.0
 * https://github.com/kevindb/jquery-dumbcrossfade
 *
 * jQuery DumbCrossFade is intended to be a light-weight slide transition that enables external manipulation.
