@@ -17,7 +17,7 @@
 
 (function($) {
 	$.fn.dumbCrossFade = function(settings) {
-	
+
 		var publicAccessorLabel = 'dumbCrossFade.publicAccessor';
 		var configLabel = 'dumbCrossFade.config';
 
@@ -45,16 +45,16 @@
 				}
 			}
 			return this;
-		} 	
-		
+		}
+
 		var config = {
 			'slideType':'slidehorizontal',
 			'index':0,
 			'showTime':5000,
 			'transitionTime':1000,
-			'doHoverPause':true, 
-			'maxZIndex':100, 
-			'slideChange':null, 
+			'doHoverPause':true,
+			'maxZIndex':100,
+			'slideChange':null,
 			'direction':'forward',
 			'fadeInOut':false
 		},
@@ -65,9 +65,9 @@
 		$self = this
 		$window = $(window),
 		$body = $('body');
-		
+
 		if (settings) $.extend(config, settings);
-		
+
 		function cancelSlideShow() {
 			if (timeOut !== null) { window.clearTimeout(timeOut); timeOut = null; }
 		}
@@ -90,7 +90,7 @@
 			}
 			if (currentIndex == nextIndex) { return; }
 			var $f = itemArray[currentIndex].show(),
-			$n = itemArray[nextIndex];			
+			$n = itemArray[nextIndex];
 			blockAnimation = true;
 			doneF = function () {
 				$f.hide();
@@ -107,7 +107,7 @@
 			$f.css('z-index',(config.maxZIndex-1)+'');
 			$n.css('z-index',config.maxZIndex+'');
 			switch (config.slideType) {
-				case 'slidehorizontal' : 
+				case 'slidehorizontal' :
 					var pos = $f.position(),
 					width = $f.width(),
 					adjustX = '-='+width;
@@ -119,11 +119,11 @@
 					}
 					if (config.fadeInOut) {
 						$n.css({'opacity':'0','display':'block'});
-						$f.animate({'left':adjustX,'opacity':'0'},config.transitionTime,'swing');	
+						$f.animate({'left':adjustX,'opacity':'0'},config.transitionTime,'swing');
 						$n.animate({'left':adjustX,'opacity':'1.0'},config.transitionTime,'swing',doneF);
 					} else {
 						$n.show();
-						$f.animate({'left':adjustX},config.transitionTime,'swing');	
+						$f.animate({'left':adjustX},config.transitionTime,'swing');
 						$n.animate({'left':adjustX},config.transitionTime,'swing',doneF);
 					}
 					break;
@@ -139,16 +139,16 @@
 					}
 					if (config.fadeInOut) {
 						$n.css({'opacity':'0','display':'block'});
-						$f.animate({'top':adjustY,'opacity':'0'},config.transitionTime,'swing');	
+						$f.animate({'top':adjustY,'opacity':'0'},config.transitionTime,'swing');
 						$n.animate({'top':adjustY,'opacity':'1.0'},config.transitionTime,'swing',doneF);
 					}
 					else {
 						$n.show();
-						$f.animate({'top':adjustY},config.transitionTime);	
+						$f.animate({'top':adjustY},config.transitionTime);
 						$n.animate({'top':adjustY},config.transitionTime,doneF);
 					}
 					break;
-				case 'fade' : 
+				case 'fade' :
 					$n.fadeIn(config.transitionTime,doneF);
 					break;
 			}
@@ -183,8 +183,8 @@
 			}
 			itemArray[itemArray.length] = $(this);
 		});
-		
-		
+
+
 		var publicAccessor = {
 			'jump' : function (index) {
 				cancelSlideShow();
@@ -211,12 +211,12 @@
 				doSlideShowNow();
 			}
 		};
-		
+
 		this.data(publicAccessorLabel,publicAccessor);
 		this.data(configLabel,config);
-		
+
 		doSlideShow();
-		
+
 		return this;
 	};
 })(jQuery);
